@@ -1,8 +1,5 @@
 import mysql.connector
-from login import user, password # Import login details from .gitignore file
-from datetime import date
-
-today = date.today()
+from login import user, password # Import login details from git ignored file
 
 db = mysql.connector.connect(
   host = "localhost",
@@ -13,5 +10,7 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-mycursor.execute(f"INSERT INTO contact (fname, lname, subject, msg, email, date) VALUES ({fname}, {lname}, {subject}, {msg}, {email}, {today})") # Insert data from user input
+mycursor.execute("INSERT INTO contact (fname, lname, subject, msg, email, date) VALUES ('Luca', 'Bazzea', 'Test', 'text', 'luca@email.com', CURRENT_DATE())") # Insert data from user input
+
 db.commit()
+print("\nTable updated successfully")
