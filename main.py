@@ -1,7 +1,4 @@
-from flask.templating import render_template_string
-from flask.wrappers import Response
 import mysql.connector
-from werkzeug.wrappers import response
 from login import user, password # Import login details from git ignored file
 from flask import	Flask, redirect, url_for, render_template, flash, request
 
@@ -32,24 +29,24 @@ fname, lname, subject, message, email = get_form()
 
 print(f"\nName: {fname}\nSurname: {lname}\nSubject: {subject}\nMessage: {message}\nEmail: {email}\n")
 
-# db = mysql.connector.connect(
-#   host = "localhost",
-#   user = user,
-#   password = password,
-#   database = "site"
-# )
+db = mysql.connector.connect(
+  host = "localhost",
+  user = user,
+  password = password,
+  database = "site"
+)
 
-# mycursor = db.cursor()
+mycursor = db.cursor()
 
-# mycursor.execute(f"INSERT INTO contact (fname, lname, subject, msg, email, date) VALUES ('{fname}', '{lname}', '{subject}', '{message}', '{email}', CURRENT_DATE())") # Insert data from user input
+mycursor.execute(f"INSERT INTO contact (fname, lname, subject, msg, email, date) VALUES ('{fname}', '{lname}', '{subject}', '{message}', '{email}', CURRENT_DATE())") # Insert data from user input
 
-# db.commit()
+db.commit()
 
-# print("\nTable updated successfully")
+print("\nTable updated successfully")
 
-# resp = "null"
+resp = "null"
 
-# @app.route("/")
-# def Response():
+@app.route("/")
+def Response():
 
-#   return render_template("index.html", response = resp)
+  return render_template("index.html", response = resp)
