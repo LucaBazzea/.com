@@ -8,7 +8,4 @@ Dependencies:
 - MySQL database
 
 pip install
-- mysql-connector
-- mysql-connector-py
-- flask-sqlalchemy
-- pymysql
+- flask-mysqldb
