@@ -1,11 +1,8 @@
 # dotcom
-My personal site hosted at LucaBazzea.com
+Dev portfolio and CV
 
-Dependencies:
-
-- Python 3
-- Flask
-- MySQL database
-
-pip install
-- flask-mysqldb
+## Quickstart Guide
+1.  ```
+    pip install -r requirements.txt
+    ```
+2. In ``.env`` add ``SECRET_KEY={your Django secret key}``
